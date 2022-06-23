@@ -1,0 +1,28 @@
+{
+  "name": "yt_trancript_to_img",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luks17/YT_Trancript_to_img.git"
+  },
+  "author": "Luks17",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Luks17/YT_Trancript_to_img/issues"
+  },
+  "homepage": "https://github.com/Luks17/YT_Trancript_to_img#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.0"
+  }
+}
