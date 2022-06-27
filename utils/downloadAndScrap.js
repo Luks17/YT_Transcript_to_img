@@ -22,6 +22,7 @@ const getVideoTranscription = async (url) => {
   const filePath = resolve("data", fileName);
 
   await youtubedl(url, {
+    writeSub: true,
     writeAutoSub: true,
     skipDownload: true,
     output: filePath
