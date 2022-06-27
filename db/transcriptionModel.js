@@ -12,3 +12,5 @@ const transcriptSchema = new Schema({
     default: "",
   },
 }) 
+
+module.exports = model("Transcript", transcriptSchema);
