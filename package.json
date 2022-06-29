@@ -18,12 +18,12 @@
   },
   "homepage": "https://github.com/Luks17/YT_Transcript_to_img#readme",
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.18"
   },
   "dependencies": {
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "mongoose": "^6.4.0",
+    "mongoose": "^6.4.1",
     "youtube-dl-exec": "^2.0.12"
   }
 }
