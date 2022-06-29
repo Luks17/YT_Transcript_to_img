@@ -15,6 +15,11 @@ app.use("/api/transcriptions", transcriptions);
 
 
 async function main() {
+  const googleCredentials = {
+    key: process.env.API_KEY,
+    cx: process.env.SEARCH_ENGINE_ID,
+  };
+
   try {
     // optionaly connect to your mongo database using the environment variable MONGO_URI
     await connectToDB(process.env.MONGO_URI);

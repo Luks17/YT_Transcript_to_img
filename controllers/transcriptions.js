@@ -1,6 +1,6 @@
 
-const Transcript = require("../db/transcriptionModel");
-const downloadAndScrap = require("../lib/downloadAndScrap");
+const Transcript = require("../db/transcription_model");
+const downloadAndScrap = require("../lib/download_and_scrap");
 
 const getAllTranscriptions = async (req, res) => {
   try{
