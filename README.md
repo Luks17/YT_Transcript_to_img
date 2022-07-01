@@ -7,8 +7,8 @@ Tasks:
 - [x] Add mongoDB support;
 - [x] Create backend for transcription API to download and scrap video captions from youtube;
 - [x] Create image-downloader lib;
-- [x] Implement transcription-to-image API;
-- [ ] Implement bash script;
+- [x] Develop transcription-to-image API;
+- [ ] Develop bash script;
 - [ ] Create a simple webpage;
 - [ ] Comment code;
 - [ ] Improve RegEx;
