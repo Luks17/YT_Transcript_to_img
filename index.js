@@ -4,21 +4,19 @@ const express = require("express");
 const app = express();
 const connectToDB = require("./db/connect");
 const transcriptions = require("./routes/transcriptions");
+const videoImages = require("./routes/images");
 
-const port = 5000;
+var port = 5000;
 
 //middleware
 app.use(express.json());
 
 //routes
 app.use("/api/transcriptions", transcriptions);
+app.use("/api/videoImages", videoImages);
 
 
 async function main() {
-  const googleCredentials = {
-    key: process.env.API_KEY,
-    cx: process.env.SEARCH_ENGINE_ID,
-  };
 
   try {
     // optionaly connect to your mongo database using the environment variable MONGO_URI
