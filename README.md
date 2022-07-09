@@ -8,8 +8,9 @@ Tasks:
 - [x] Create backend for transcription API to download and scrap video captions from youtube;
 - [x] Create image-downloader lib;
 - [x] Develop transcription-to-image API;
+- [ ] Refactor images API;
 - [ ] Develop bash script;
-- [ ] Create a simple webpage;
+- [x] Create webpage foundation;
+- [ ] Finish a simple webpage;
 - [ ] Comment code;
-- [ ] Improve RegEx;
-- [ ] Windows support.
+- [ ] Windows support (Batch Script and check if everything works properly).
