@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect To Mongo</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/main.css"/>
+</head>
+<body>
+  <div class="header navbar container">
+    <a href="./index.html">
+      <i class="ri-arrow-left-circle-fill"></i>
+    </a>
+
+    <button class="btn highlight centralize" id="toggle-theme">
+      <i class="ri-sun-line sun-icon"></i>
+      <i class="ri-moon-line moon-icon"></i>
+    </button>
+  </div>
+
+  <div class="form-header centralize">
+    <div class="container connection-form">
+      <h3 class="main-title">Connect to MongoDB</h3>
+      <form>
+        <label>Mongo_uri</label>
+        <input type="text" class="form-input mongo-uri-input" name="mongo_uri" autocomplete="off" />
+      </form>
+      <button type="button" class="btn submit-connection-btn highlight">Submit</button>
+    </div>
+  </div>
+
+  <div class="submit-status">
+    <h6></h6>
+  </div>    
+  
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./assets/js/selectElement.js"></script>
+  <script src="./assets/js/toggleTheme.js"></script>
+  <script src="./assets/js/connect.js"></script>
+</body>
+</html>

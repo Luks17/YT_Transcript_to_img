@@ -1,0 +1,226 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+
+:root{
+  --light-color: #fff;
+  --light-color-alt: #9494a5;
+  --primary-background-color: #21232b;
+  --secondary-background-color: #2a303d;
+  --hover-light-color: var(--light-color);
+  --hover-dark-color: var(--primary-background-color);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --font-family: "Fira Sans", sans-serif;
+  --font-size-xsm: 1.2rem;
+  --font-size-sm: 1.6rem;
+  --font-size-md: 2.4rem;
+  --font-size-lg: 3rem;
+  --font-size-xl: 4rem;
+  --gap: 2rem;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 10px;
+}
+
+body{
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  color: var(--light-color-alt);
+  background-color: var(--primary-background-color);
+  letter-spacing: 0.1rem;
+  transition: background-color .25s, color .25s; /*Transitions theme softly*/
+}
+
+a{
+  font-size: var(--font-size-sm);
+  color: inherit;
+  text-decoration: none;
+}
+
+img{
+  max-width: 100%;
+}
+
+/*Makes all buttons prettier*/
+input,
+button{
+  font: inherit;
+  color: inherit;
+  border: none;
+  background-color: transparent;
+}
+
+i{
+  font-size: var(--font-size-md);
+}
+
+ul{
+  list-style-type: none;
+}
+
+/*When body has the class light-theme*/
+body.light-theme{
+  --light-color: #363636;
+  --light-color-alt: rgba(0, 0, 0, .6);
+  --primary-background-color: #FFF4E3;
+  --secondary-background-color: #bbafaf;
+  --hover-light-color: rgb(34, 33, 33);
+}
+
+/*Makes all buttons clickable*/
+.btn{
+  cursor: pointer; 
+}
+
+/*Hides icon theme when theme mode is active*/
+.moon-icon,
+body.light-theme .sun-icon{
+  display: none;
+}
+
+/*Shows moon icon when light mode is active*/
+body.light-theme .moon-icon{
+  display: block;
+}
+
+.container{
+  padding: 0 2rem;
+}
+
+.centralize{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header{
+  background-color: var(--secondary-background-color);
+  position: fixed; /*Makes header always visible even when scrolling*/
+  top: 0;
+  left: 0;
+  width: 100%; /*Fixes width that position: fixed reduces*/
+}
+
+.navbar{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding-block: 2rem;
+}
+
+.title{
+  font-size: var(--font-size-md);
+}
+
+.list{
+  display: flex;
+  align-items: center;
+  gap: var(--gap)
+}
+
+.menu{
+  position: absolute;
+  top: 7rem;
+  right: 0.5rem;
+  width: 20rem;
+  padding: 1.6rem;
+  background-color: var(--secondary-background-color);
+  opacity: 0;
+  border: .2rem #000;
+  border-style: solid;
+  transform: scale(0);
+  transition: opacity .3s;
+}
+
+.menu.activated{
+  opacity: 1;
+  transform: scale(1);  
+}
+
+.menu > .list{
+  flex-direction: column;
+}
+
+.highlight{
+  transition: color .2s;
+}
+
+.highlight:hover{
+  color: var(--hover-light-color);
+}
+
+.menu-btn{
+  display: inherit;
+  transition: transform .25s;
+}
+
+/*Rotate menu when activated*/
+#toggle-menu.activated .menu-btn{
+  transform: rotate(90deg);
+}
+
+.hide-sm-screen{
+  display: none;
+}
+
+/*Changes navbar depending on screen size*/
+@media only screen and (min-width: 60rem){
+  .hide-lg-screen{
+    display: none;
+  }
+  .hide-sm-screen{
+    display: block;
+  }
+}
+
+.form-header{
+  width: 100%;
+  position: relative;
+}
+
+.main-title{
+  font-size: var(--font-size-xl);
+  padding-bottom: 3rem;
+}
+
+.connection-form{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  box-shadow: var(--shadow);
+  top: 10rem;
+  padding: 5rem 3rem;
+  gap: var(--gap);
+  background-color: var(--secondary-background-color);
+}
+
+.connection-form > form {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-input{
+  margin-top: 1rem;
+  background-color: var(--light-color-alt);
+  padding: .5rem;
+  width: 100%;
+  color: var(--primary-background-color);
+}
+
+.connection-form > form > label{
+  text-transform: uppercase;
+}
+
+.submit-connection-btn{
+  font-size: var(--font-size-md);
+}
+
+
+
+

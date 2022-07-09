@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YT Transcript-to-img</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/main.css"/>
+  </head>
+
+  <body>
+
+    <header class="header">
+      <nav class="navbar container">
+        <a href="./index.html">
+          <h2 class="title">Youtube Transcript to Images</h2>
+        </a>
+
+        <div class="menu" id="menu">
+          <ul class="list">
+            <li class="highlight">
+              <a href="connect_to_mongo.html" class="highlight mongodb-btn">Connect to MongoDB</a>
+            </li>
+            <li class="highlight">
+              <a href="#" class="highlight google-btn">Connect to GoogleSearchAPI</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="list">
+          <button class="btn highlight centralize" id="toggle-theme">
+            <i class="ri-sun-line sun-icon"></i>
+            <i class="ri-moon-line moon-icon"></i>
+          </button>
+
+          <button class="btn highlight centralize">
+            <a href="https://github.com/Luks17/YT_Transcript_to_img">
+              <i class="ri-github-fill"></i>
+            </a>
+          </button>
+
+          <button class="btn highlight centralize hide-lg-screen" id="toggle-menu">
+            <i class="ri-menu-4-line menu-btn"></i>
+          </button>
+
+          <a href="./connect_to_mongo.html" class="hide-sm-screen centralize btn highlight mongodb-btn">
+            <span>Connect to MongoDB</span>
+          </a>
+          <a href="./connect_to_google.html" class="hide-sm-screen centralize btn highlight google-btn">
+            <span>Connect to GoogleSearchAPI</span>
+          </a>
+        </div>
+
+      </nav>
+    </header>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./assets/js/selectElement.js"></script>
+    <script src="./assets/js/toggleTheme.js"></script>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
