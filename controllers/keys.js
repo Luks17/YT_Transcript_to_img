@@ -12,20 +12,14 @@ const insertGoogleKeys = async (req, res) => {
 
   const googleString = `\nAPI_KEY=${req.body.google_api_key}\nSEARCH_ENGINE_ID=${req.body.google_cx}`;
 
-  if(envParamsExistence.googleCredentials) {
-    try {
+  try{
+    if (envParamsExistence.googleCredentials) {
       const env = await readFile(".env", "utf-8");
       const newEnv = env.replace(/((\n)?API_KEY=.+)|(\n)?SEARCH_ENGINE_ID=.+/g, "");
 
       await writeFile(".env", newEnv);
     }
-    catch(error) {
-      console.log(error);
-      return res.status(500).json({ msg: error });
-    }
-  }
 
-  try{
     await writeFile(".env", googleString, { flag: "a" });
   }
   catch(error) {

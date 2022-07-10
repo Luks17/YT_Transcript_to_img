@@ -16,7 +16,7 @@ const getAllTranscriptions = async (req, res) => {
 const createTranscription = async (req, res) => {
   let transcription;
   if(!req.body.videoURL) {
-    return res.status(401).json({msg: "Invalid URL provided"});
+    return res.status(400).json({msg: "Invalid URL provided"});
   }
 
   const url = req.body.videoURL;
@@ -37,7 +37,7 @@ const createTranscription = async (req, res) => {
   }
   catch(error) {
     console.log(error);
-    res.status(401).json({ msg: error });
+    res.status(422).json({ msg: error });
   }
 }
 

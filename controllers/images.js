@@ -16,7 +16,7 @@ const getAllVideoImages = async (req, res) => {
 
 const getVideoImages = async (req, res) => {
   if(!req.params.videoId)
-    return res.status(401).json({msg: "No video ID provided at parameters"});
+    return res.status(400).json({msg: "No video ID provided at parameters"});
 
   const videoID = req.params.videoId;
 
@@ -35,9 +35,9 @@ const getVideoImages = async (req, res) => {
 
 const createVideoImages = async (req, res) => {
   if(!req.body.videoID)
-    return res.status(401).json({msg: "No video ID provided at body"});
+    return res.status(400).json({msg: "No video ID provided at body"});
   if(!req.body.transcription)
-    return res.status(401).json({ msg: "No video transcription provided" });
+    return res.status(400).json({ msg: "No video transcription provided" });
   
   const videoID = req.body.videoID;
   const transcription = req.body.transcription.split("\n");
@@ -56,13 +56,13 @@ const createVideoImages = async (req, res) => {
   }
   catch(error) {
     console.log(error);
-    res.status(401).json({ msg: error });
+    res.status(422).json({ msg: error });
   }
 }
 
 const removeVideoImages = async (req, res) => {
   if(!req.params.videoId)
-    return res.status(401).json({msg: "No video ID provided at parameters"});
+    return res.status(400).json({msg: "No video ID provided at parameters"});
   
   const videoID = req.params.videoId;
 
