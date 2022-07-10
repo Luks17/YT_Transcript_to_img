@@ -12,6 +12,10 @@ const transcriptSchema = new Schema({
     type: "string",
     default: "",
   },
+  imagesURLs: {
+    type: "array",
+    default: new Array(),
+  },
 }) 
 
 module.exports = model("Transcript", transcriptSchema);

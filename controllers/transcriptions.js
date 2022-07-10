@@ -1,6 +1,8 @@
 
 const Transcript = require("../db/transcription_model");
 const downloadAndScrap = require("../lib/download_and_scrap");
+const { getImageURL } = require("../lib/image_downloader");
+const { lightTranscript } = require("../lib/light_transcript");
 
 const getAllTranscriptions = async (req, res) => {
   try{
@@ -41,6 +43,46 @@ const createTranscription = async (req, res) => {
   }
 }
 
+// This function does not need a body. However, you can optionally use the lightSearch boolean to save google search quotas
+const putVideoImages = async (req, res) => {
+  const transcriptId = req.params.id;
+  const lightSearch = req.body.lightSearch;
+  const urls = new Array();
+  let transcription;
+  let body;
+
+  try{
+    body = (await Transcript.findOne({ _id: transcriptId })).toObject();
+    transcription = body.transcription;
+
+    transcription = transcription.split("\n"); // creates an array element for each line in string
+    if(lightSearch)
+      transcription = lightTranscript(transcription); // reduces array size by joining lines in pairs
+  }
+  catch(error) {
+    console.log(error);
+    return res.status(404).json({ msg: "No transcript matching the transcript ID was found" });
+  }
+
+  try{
+    for(let i in transcription) {
+      const url = await getImageURL(transcription[i]);
+      urls.push(url);
+    }
+    body.imagesURLs = urls;
+
+    const newTranscription = await Transcript.findOneAndReplace({ _id: transcriptId }, body, {
+      new: true,
+      runValidators: true,
+    });
+    res.status(200).json(newTranscription);
+  }
+  catch(error) {
+    console.log(error);
+    res.status(500).json({ msg: error });
+  }
+}
+
 const getTranscription = async (req, res) => {
   try {
     const transcriptId = req.params.id;
@@ -71,4 +113,4 @@ const deleteTranscription = async (req, res) => {
   }
 }
 
-module.exports = {getAllTranscriptions, createTranscription, getTranscription, deleteTranscription};
+module.exports = {getAllTranscriptions, createTranscription, putVideoImages, getTranscription, deleteTranscription};
