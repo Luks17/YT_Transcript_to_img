@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const {getAllTranscriptions, createTranscription, putVideoImages, getTranscription, deleteTranscription} = require("../controllers/transcriptions");
 
+
 router.route("/")
   .get(getAllTranscriptions)
   .post(createTranscription)

@@ -17,9 +17,8 @@ const getAllTranscriptions = async (req, res) => {
 
 const createTranscription = async (req, res) => {
   let transcription;
-  if(!req.body.videoURL) {
+  if(!req.body.videoURL)
     return res.status(400).json({msg: "Invalid URL provided"});
-  }
 
   const url = req.body.videoURL;
 
@@ -48,8 +47,7 @@ const putVideoImages = async (req, res) => {
   const transcriptId = req.params.id;
   const lightSearch = req.body.lightSearch;
   const urls = new Array();
-  let transcription;
-  let body;
+  let transcription, body;
 
   try{
     body = (await Transcript.findOne({ _id: transcriptId })).toObject();
@@ -71,11 +69,15 @@ const putVideoImages = async (req, res) => {
     }
     body.imagesURLs = urls;
 
-    const newTranscription = await Transcript.findOneAndReplace({ _id: transcriptId }, body, {
+    Transcript.findOneAndReplace({ _id: transcriptId }, body, {
       new: true,
       runValidators: true,
+    })
+    .then(newTranscription => res.status(200).json(newTranscription))
+    .catch(error => {
+      console.log(error);
+      return res.status(404).json({ msg: "No transcript matching the transcript ID was found." });
     });
-    res.status(200).json(newTranscription);
   }
   catch(error) {
     console.log(error);
