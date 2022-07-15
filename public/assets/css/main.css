@@ -8,7 +8,7 @@
   --secondary-background-color: #2a303d;
   --hover-light-color: var(--light-color);
   --hover-dark-color: var(--primary-background-color);
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 1);
   --font-family: "Fira Sans", sans-serif;
   --font-size-xsm: 1.2rem;
   --font-size-sm: 1.6rem;
@@ -16,6 +16,7 @@
   --font-size-lg: 3rem;
   --font-size-xl: 4rem;
   --gap: 2rem;
+  --radius: .5rem
 }
 
 *{
@@ -104,7 +105,7 @@ body.light-theme .moon-icon{
   position: fixed; /*Makes header always visible even when scrolling*/
   top: 0;
   left: 0;
-  width: 100%; /*Fixes width that position: fixed reduces*/
+  width: 100%; /*Fixes width that <position: fixed> reduces*/
 }
 
 .navbar{
@@ -136,6 +137,8 @@ body.light-theme .moon-icon{
   border-style: solid;
   transform: scale(0);
   transition: opacity .3s;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .menu.activated{
@@ -198,6 +201,7 @@ body.light-theme .moon-icon{
   padding: 5rem 3rem;
   gap: var(--gap);
   background-color: var(--secondary-background-color);
+  border-radius: var(--radius);
 }
 
 .connection-form > form {
@@ -207,10 +211,10 @@ body.light-theme .moon-icon{
 
 .form-input{
   margin-top: 1rem;
-  background-color: var(--light-color-alt);
+  background-color: var(--primary-background-color);
   padding: .5rem;
   width: 100%;
-  color: var(--primary-background-color);
+  color: var(--light-color-alt);
 }
 
 .connection-form > form > label{
@@ -221,6 +225,31 @@ body.light-theme .moon-icon{
   font-size: var(--font-size-md);
 }
 
+.submit-connection-btn > span{
+  background-color: var(--primary-background-color);
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: .2rem solid black;
+}
 
+.main-body{
+  position: relative;
+  display: block;
+  z-index: -1;
+  top: 9rem;
+}
 
+#database-buttons-container{
+  display: flex;
+  justify-content: center;
+}
+
+.main-body-btn{
+  background-color: var(--secondary-background-color);
+  padding: 1.2rem;
+  font-size: var(--font-size-md);
+  border-radius: var(--radius);
+  border: .2rem solid black;
+  box-shadow: var(--shadow);
+}
 
