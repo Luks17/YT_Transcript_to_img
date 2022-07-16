@@ -17,20 +17,23 @@ const getAllTranscriptions = async (req, res) => {
 
 const createTranscription = async (req, res) => {
   let transcription;
+  let title;
   if(!req.body.videoURL)
-    return res.status(400).json({msg: "Invalid URL provided"});
+    return res.status(400).json({msg: "Invalid or no videoURL provided"});
 
   const url = req.body.videoURL;
 
   try {
-    transcription = await downloadAndScrap(url);
+    const videoData = await downloadAndScrap(url);
+    title = videoData.title;
+    transcription = videoData.text
   }
   catch(error) {
     console.log(error);
     return res.status(500).json({ msg: error });
   }
 
-  const transcript = new Transcript({videoURL: url, transcription: transcription});
+  const transcript = new Transcript({videoTitle: title, videoURL: url, transcription: transcription});
 
   try {
     await transcript.save();
