@@ -57,25 +57,33 @@
     </header>
 
     <div class="container main-body">
-      <div class="list" id="database-buttons-container">
-        <button class="btn highlight centralize main-body-btn">
+      <div id="database-buttons-container">
+        <button class="btn highlight centralize main-body-btn" id="get-content-btn">
           <i class="ri-arrow-down-circle-line"></i>
           <h5>Retrieve content from Database</h5>
         </button>
-        <button class="btn highlight centralize main-body-btn">
+        <button class="btn highlight centralize main-body-btn" id="push-content-btn">
           <i class="ri-arrow-up-circle-line"></i>
           <h5>Upload content in Database</h5>
         </button>
       </div>
 
-      <section>
-        
+      <section class="content-container hidden-default">
+        <p class="hidden-default" id="loading-text">Loading content...</p>
+        <div class="centralize">
+          <h3 class="title">Content</h3>
+
+          <ul class="list" id="database-content">
+          </ul>
+        </div>
       </section>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./assets/js/selectElement.js"></script>
     <script src="./assets/js/toggleTheme.js"></script>
+    <script src="./assets/js/toggleMenu.js"></script>
+    <script src="./assets/js/showContent.js"></script>
     <script src="./assets/js/main.js"></script>
   </body>
 </html>
